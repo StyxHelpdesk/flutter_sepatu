@@ -87,7 +87,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home')),
-      body:
+      body: Stack(
+        children: [
+          // Background image with 40% opacity
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.4,
+              child: Image.asset('img/homebg.jpg', fit: BoxFit.cover),
+            ),
+          ),
+
           _isLoading
               ? const Center(child: CircularProgressIndicator())
               : _data.isEmpty
@@ -97,6 +106,9 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   final item = _data[index];
                   return Card(
+                    color: Colors.white.withOpacity(
+                      0.8,
+                    ), // Semi-transparent card
                     margin: const EdgeInsets.all(8.0),
                     child: ListTile(
                       title: Text(item['merk']),
@@ -112,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(height: 8),
                           Text(
                             'Harga: ${item['harga'] ?? 'Harga tidak tersedia'}',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.green,
                               fontWeight: FontWeight.bold,
                             ),
@@ -191,6 +203,8 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(

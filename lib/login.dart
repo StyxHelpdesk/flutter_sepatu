@@ -68,21 +68,35 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(
+              'img/login.png',
+              width: 200,
+              height: 150,
+              fit: BoxFit.contain,
+            ),
+            const SizedBox(height: 24),
+            // Username field
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(labelText: 'Nama Pengguna'),
             ),
             const SizedBox(height: 16),
+
+            // Password field
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(labelText: 'Kata Sandi'),
               obscureText: true,
             ),
             const SizedBox(height: 24),
+
+            // Login button
             _isLoading
                 ? const CircularProgressIndicator()
                 : ElevatedButton(onPressed: _login, child: const Text('Masuk')),
             const SizedBox(height: 16),
+
+            // Register button
             TextButton(
               onPressed: () {
                 Navigator.push(
