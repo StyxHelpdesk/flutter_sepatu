@@ -21,6 +21,7 @@ class ProfilePage extends StatelessWidget {
               'Alfian Bernardo Rusli',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
+            const Text('714220048', style: TextStyle(fontSize: 18)),
             const SizedBox(height: 8),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),

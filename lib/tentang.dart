@@ -10,11 +10,21 @@ class AboutPage extends StatelessWidget {
       body: const Center(
         child: Padding(
           padding: EdgeInsets.all(16.0),
-          child: Text(
-            'Aplikasi ini dibuat untuk mengelola daftar sepatu. '
-            'Dibangun dengan Flutter dan menggunakan API untuk menyimpan data.',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircleAvatar(
+                radius: 60,
+                backgroundImage: AssetImage('img/homebg.jpg'),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Aplikasi ini dibuat untuk mengelola daftar sepatu. '
+                'Dibangun dengan Flutter dan menggunakan API untuk menyimpan data.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
           ),
         ),
       ),
